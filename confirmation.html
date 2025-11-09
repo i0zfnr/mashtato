@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Mashtato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Mash<span>tato</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <!-- <li><a href="product.html">Our Product</a></li> -->
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="order.html" class="order-btn">Order Now</a></li>
+                    <li><a href="cart.html" class="order-btn">Cart</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Confirmation Section -->
+    <section class="confirmation-section">
+        <div class="container">
+            <div class="confirmation-container">
+                <div class="confirmation-icon">✅</div>
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for your order. We've received your order and will process it shortly.</p>
+                
+                <div class="order-details" id="order-details">
+                    <h3>Order Details</h3>
+                    <!-- Order details will be populated by JavaScript -->
+                </div>
+                
+                <p style="margin: 30px 0;">
+                    <strong>What's Next?</strong><br>
+                    We'll contact you via WhatsApp at <span id="customer-phone-display"></span> to confirm your order and delivery details.
+                </p>
+                
+                <a href="index.html" class="back-home-btn">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Mashtato</h3>
+                    <p>Delicious loaded potato bowls with premium toppings. Serving Politeknik Besut Terengganu community.</p>
+                    <div class="social-links">
+                        <!-- <a href="#" class="social-icon">📘</a> -->
+                        <a href="https://www.instagram.com/mashtato_original?igsh=MTc1YzdzbmF2cGRjNw==" class="social-icon">📷</a>
+                        <!-- <a href="#" class="social-icon">📱</a> -->
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="product.html">Our Product</a></li> -->
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Phone: +011-2477-4814</li>
+                        <li>Email: info@mashtato.com</li>
+                        <li>Location: Politeknik Besut Terengganu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Mashtato. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load order details
+        document.addEventListener('DOMContentLoaded', function() {
+            const lastOrder = JSON.parse(localStorage.getItem('lastOrder'));
+            
+            if (!lastOrder) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            const orderDetailsDiv = document.getElementById('order-details');
+            const phoneDisplay = document.getElementById('customer-phone-display');
+            
+            phoneDisplay.textContent = lastOrder.customerPhone;
+            
+            let orderHTML = `
+                <div class="detail-row">
+                    <span class="detail-label">Order Number:</span>
+                    <span>${lastOrder.orderNumber}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Date:</span>
+                    <span>${lastOrder.date}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Customer Name:</span>
+                    <span>${lastOrder.customerName}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Phone:</span>
+                    <span>${lastOrder.customerPhone}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Delivery Address:</span>
+                    <span>${lastOrder.customerAddress}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Payment Method:</span>
+                    <span>${lastOrder.paymentMethod}</span>
+                </div>
+                <div class="detail-row" style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #ddd;">
+                    <span class="detail-label">Items:</span>
+                    <span></span>
+                </div>
+            `;
+            
+            lastOrder.items.forEach(item => {
+                orderHTML += `
+                    <div class="detail-row" style="padding-left: 20px;">
+                        <span>${item.name} (${item.topping}) × ${item.quantity}</span>
+                        <span>RM${item.total}.00</span>
+                    </div>
+                `;
+            });
+            
+            orderHTML += `
+                <div class="detail-row" style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #ddd; font-weight: 700; font-size: 1.2rem; color: var(--primary-color);">
+                    <span class="detail-label">Total:</span>
+                    <span>RM${lastOrder.total}.00</span>
+                </div>
+            `;
+            
+            orderDetailsDiv.innerHTML = orderHTML;
+        });
+    </script>
+</body>
+</html>

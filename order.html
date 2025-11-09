@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Product - Mashtato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Mash<span>tato</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <!-- <li><a href="product.html">Our Product</a></li> -->
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="order.html" class="order-btn">Order Now</a></li>
+                    <li><a href="cart.html" class="order-btn">Cart</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <section class="product-section" id="product">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Signature Loaded Potato Bowl</h2>
+                <p>Choose your favorite topping and enjoy our delicious loaded potato bowl. Perfect for any time of the day!</p>
+            </div>
+            <div class="product-container">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('img1.jpg');"></div>
+                    <div class="product-info">
+                        <h3>Loaded Potato Bowl</h3>
+                        <p>Creamy mashed potatoes topped with cheese, sour cream, chives, and your choice of premium topping.</p>
+                        
+                        <div class="topping-options">
+                            <div class="topping-option selected" data-topping="chicken">
+                                <h4>Chicken Popcorn</h4>
+                                <p>Crispy, flavorful chicken bites</p>
+                            </div>
+                            <div class="topping-option" data-topping="meatball">
+                                <h4>Meatball</h4>
+                                <p>Savory, juicy meatballs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <div class="quantity-display">1</div>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        
+                        <button class="add-to-cart">Add to Cart - RM6.00</button>
+                        <a href="cart.html" class="view-cart-btn" style="display: none;">View Cart (<span id="cart-count">0</span>)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Mashtato</h3>
+                    <p>Delicious loaded potato bowls with premium toppings. Serving Politeknik Besut Terengganu community.</p>
+                    <div class="social-links">
+                        <!-- <a href="#" class="social-icon">📘</a> -->
+                        <a href="https://www.instagram.com/mashtato_original?igsh=MTc1YzdzbmF2cGRjNw==" class="social-icon">📷</a>
+                        <!-- <a href="#" class="social-icon">📱</a> -->
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <!-- <li><a href="product.html">Our Product</a></li> -->
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Phone: +011-2477-4814</li>
+                        <li>Email: info@mashtato.com</li>
+                        <li>Location: Politeknik Besut Terengganu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Mashtato. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

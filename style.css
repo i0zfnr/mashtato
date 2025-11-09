@@ -3506,12 +3506,12 @@ textarea:focus {
 }
 
 /* Improved Image Responsiveness */
-img, 
+/* img, 
 .product-image, 
 .popular-image {
   max-width: 100%;
   height: auto;
-}
+} */
 
 /* Prevent horizontal scrolling */
 body {

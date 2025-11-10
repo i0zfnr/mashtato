@@ -779,3 +779,69 @@ window.addEventListener('scroll', function() {
 });
 
 
+// Add this function to your existing script.js
+
+// Topping Selection with Image Change
+function initializeToppingSelection() {
+    const toppingOptions = document.querySelectorAll('.topping-option');
+    const productImage = document.getElementById('product-image');
+    const toppingTag = document.getElementById('topping-tag');
+    
+    toppingOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected class from all options
+            toppingOptions.forEach(opt => {
+                opt.classList.remove('selected');
+                opt.style.transform = 'scale(1)';
+            });
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+            this.style.transform = 'scale(1.05)';
+            
+            // Get the image path and topping name
+            const imagePath = this.getAttribute('data-image');
+            const toppingName = this.querySelector('h4').textContent;
+            
+            // Change the product image with fade animation
+            changeProductImage(imagePath, toppingName);
+            
+            // Reset animation after completion
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    });
+    
+    // Function to change product image with smooth transition
+    function changeProductImage(imagePath, toppingName) {
+        // Add fade-out class
+        productImage.classList.add('fade-out');
+        
+        setTimeout(() => {
+            // Change image source
+            productImage.style.backgroundImage = `url('${imagePath}')`;
+            
+            // Update topping tag
+            toppingTag.textContent = toppingName;
+            
+            // Remove fade-out and add fade-in class
+            productImage.classList.remove('fade-out');
+            productImage.classList.add('fade-in');
+            
+            setTimeout(() => {
+                productImage.classList.remove('fade-in');
+            }, 300);
+        }, 300);
+    }
+}
+
+// Call this function when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Your existing DOMContentLoaded code...
+    
+    // Initialize topping selection with image change
+    initializeToppingSelection();
+    
+    // Rest of your existing code...
+});

@@ -34,17 +34,21 @@
             </div>
             <div class="product-container">
                 <div class="product-card">
-                    <div class="product-image" style="background-image: url('img1.jpg');"></div>
+                    <div class="product-image" id="product-image" style="background-image: url('img1.jpg');">
+                        <div class="image-overlay">
+                            <span class="topping-tag" id="topping-tag">Chicken Popcorn</span>
+                        </div>
+                    </div>
                     <div class="product-info">
                         <h3>Loaded Potato Bowl</h3>
                         <p>Creamy mashed potatoes topped with cheese, sour cream, chives, and your choice of premium topping.</p>
                         
                         <div class="topping-options">
-                            <div class="topping-option selected" data-topping="chicken">
+                            <div class="topping-option selected" data-topping="chicken" data-image="img1.jpg">
                                 <h4>Chicken Popcorn</h4>
                                 <p>Crispy, flavorful chicken bites</p>
                             </div>
-                            <div class="topping-option" data-topping="meatball">
+                            <div class="topping-option" data-topping="meatball" data-image="img3.jpg">
                                 <h4>Meatball</h4>
                                 <p>Savory, juicy meatballs</p>
                             </div>
@@ -103,5 +107,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
